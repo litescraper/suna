@@ -269,6 +269,8 @@ const envSchema = z.object({
   TAVILY_API_KEY: optStr,
   SERPER_API_URL: optUrl('https://google.serper.dev'),
   SERPER_API_KEY: optStr,
+  LITESCRAPE_API_URL: optUrl('https://api.litescrape.com'),
+  LITESCRAPE_API_KEY: optStr,
 
   // ── Proxy Providers (optional) ───────────────────────────────────────────
   FIRECRAWL_API_URL: optUrl('https://api.firecrawl.dev'),
@@ -1108,6 +1110,8 @@ export const config = {
   TAVILY_API_KEY: env.TAVILY_API_KEY,
   SERPER_API_URL: env.SERPER_API_URL,
   SERPER_API_KEY: env.SERPER_API_KEY,
+  LITESCRAPE_API_URL: env.LITESCRAPE_API_URL,
+  LITESCRAPE_API_KEY: env.LITESCRAPE_API_KEY,
 
   // ─── Proxy Providers ──────────────────────────────────────────────────────
   FIRECRAWL_API_URL: env.FIRECRAWL_API_URL,

@@ -85,6 +85,17 @@ export function getProxyServices(): Record<string, ProxyServiceConfig> {
     },
 
 
+    litescrape: {
+      name: 'litescrape',
+      targetBaseUrl: config.LITESCRAPE_API_URL,
+      getKortixApiKey: () => config.LITESCRAPE_API_KEY,
+      keyInjection: { type: 'header', headerName: 'X-API-KEY' },
+      allowedRoutes: [
+        { path: '/search', methods: ['POST'] },
+      ],
+      billingToolName: 'proxy_serper',
+    },
+
     firecrawl: {
       name: 'firecrawl',
       targetBaseUrl: config.FIRECRAWL_API_URL,

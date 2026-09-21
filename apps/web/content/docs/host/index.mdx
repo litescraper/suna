@@ -88,6 +88,21 @@ kortix self-host env set KORTIX_API_MEMORY_LIMIT=1024m
 
 Confirm the applied limit with `docker stats --no-stream`.
 
+## Litescrape web search
+
+Set `LITESCRAPE_API_KEY` in the API container environment and restart the API.
+`LITESCRAPE_API_URL` defaults to `https://api.litescrape.com`.
+Use the router's `POST /litescrape/search` route, relative to its mounted base URL,
+with a Serper-compatible JSON body, such as `{"q":"coffee grinders","num":5}`.
+
+Kortix-token requests use the configured Litescrape key in `X-API-KEY`.
+Self-hosted passthrough requests can supply their own Litescrape key in that header.
+The provider reuses the existing `proxy_serper` billing configuration.
+Only individual web searches are supported; image search and other Serper routes
+are unchanged. This does not switch the default web-search provider.
+See the [Litescrape migration guide](https://litescrape.com/blog/serper-migration)
+for supported request fields and response mappings.
+
 ## Updates
 
 Every instance updates itself automatically. Pin an exact version instead:
